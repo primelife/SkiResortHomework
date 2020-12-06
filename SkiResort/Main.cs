@@ -28,43 +28,7 @@ namespace SkiResort
             // Then we create the Shop (I made a mistake with how i connected my classes here. Ski resort and Shop)
             Shop SkiShop = new Shop();
             Bansko.addShop(SkiShop);
-
-
-            // We created Ski1 of Type 1                
-            SkiType1 Ski11 = new SkiType1("Yamaha", 49.99, "Small", 1, 5);
-            SkiType1 Ski12 = new SkiType1("Yamaha", 49.99, "Medium", 1, 5);
-            SkiType1 Ski13 = new SkiType1("Yamaha", 49.99, "Large", 1, 5);
-
-            SkiType2 Ski21 = new SkiType2("Skoda", 59.99, "Small", 2, 7);
-            SkiType2 Ski22 = new SkiType2("Skoda", 59.99, "Medium", 2, 7);
-            SkiType2 Ski23 = new SkiType2("Skoda", 59.99, "Large", 2, 7);
-
-            SkiType3 Ski31 = new SkiType3("Suzuki", 69.99, "Small", 3, 3);
-            SkiType3 Ski32 = new SkiType3("Suzuki", 69.99, "Medium", 3, 3);
-            SkiType3 Ski33 = new SkiType3("Suzuki", 69.99, "Large", 3, 3);
-
-            SkiType4 Ski41 = new SkiType4("Honda", 79.99, "Small", 4, 9);
-            SkiType4 Ski42 = new SkiType4("Honda", 79.99, "Medium", 4, 9);
-            SkiType4 Ski43 = new SkiType4("Honda", 79.99, "Large", 4, 9);
-
-            SkiType5 Ski51 = new SkiType5("Toyota", 89.99, "Small", 5, 4);
-            SkiType5 Ski52 = new SkiType5("Toyota", 89.99, "Medium", 5, 4);
-            SkiType5 Ski53 = new SkiType5("Toyota", 89.99, "Large", 5, 4);
-            SkiShop.AddSki(Ski11);
-            SkiShop.AddSki(Ski12);
-            SkiShop.AddSki(Ski13);
-            SkiShop.AddSki(Ski21);
-            SkiShop.AddSki(Ski22);
-            SkiShop.AddSki(Ski23);
-            SkiShop.AddSki(Ski31);
-            SkiShop.AddSki(Ski32);
-            SkiShop.AddSki(Ski33);
-            SkiShop.AddSki(Ski41);
-            SkiShop.AddSki(Ski42);
-            SkiShop.AddSki(Ski43);
-            SkiShop.AddSki(Ski51);
-            SkiShop.AddSki(Ski52);
-            SkiShop.AddSki(Ski53);
+            
 
             SkiShop.listFullSkiList();
 
@@ -86,12 +50,17 @@ namespace SkiResort
             // Select a your choice and populate it's number in "Type"
 
 
+            Dictionary<int, string> simpleDictionary = new Dictionary<int, string>();
 
-            {
 
-        }
+            //simpleDictionary.Add(1, "hello");
 
-          
+            //simpleDictionary.Get(1); // hello
+
+
+            
+            //simpleDictionary[1] = "";
+            //string getString = simpleDictionary[1];
 
         }
     }

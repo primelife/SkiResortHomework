@@ -10,7 +10,6 @@ namespace SkiResort
         private List<Shop> Shop = new List<Shop>();
         // Constructor
         public SkiVillage()
-
         {
            
            

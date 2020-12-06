@@ -7,32 +7,57 @@ namespace SkiResort
     public class Shop
     {
 
-        private List<SkiBase> Ski = new List<SkiBase>();
+        //private List<SkiBase> Ski = new List<SkiBase>();
+        private Dictionary<SkiBrands, List<SkiBase>> Ski = new Dictionary<SkiBrands, List<SkiBase>>();
         
 
         // Constructor
         public Shop()
         {
+            initDictionary();
+            populateSki();
+        }
 
+        private void initDictionary()
+        {
+            foreach (SkiBrands skiBrand in Enum.GetValues(typeof(SkiBrands)))
+            {
+                Ski[skiBrand] = new List<SkiBase>();
+            }
+        }
+
+
+        private void populateSki()
+        {
+            //add to the shop all the available ski
+            AddSki(new HondaSkiModelX());
+        }
+
+        private void populateSkiShoes()
+        {
+            for(int i = 35; i < 46; i++)
+            {
+                // add to dictionary new skie shoe model with size i
+            }
         }
 
 
 
-        public void AddSki(SkiBase skibase)
+        private void AddSki(SkiBase inputSki)
         {
+            Ski[inputSki.Brand].Add(inputSki);
+        }
 
-            this.Ski.Add(skibase);
+        public void AddSKiShoes(string Brand, double RentPrice, string SkiShoeSize, int Type) //redo
+        {
 
         }
 
-        public void AddSKiShoes(string Brand, double RentPrice, string SkiShoeSize, int Type)
+        public void Rent(SkiBrands Brand, SkiSizes Size)
         {
 
-        }
 
-        public void Rent(string Brand, string Size)
-        {
-            foreach (SkiBase ski in Ski)
+            foreach (SkiBase ski in Ski[Brand])
             {
                 if (ski.Brand == Brand & ski.SkiSize == Size)
                 {
@@ -46,9 +71,9 @@ namespace SkiResort
             Console.WriteLine("There is no item with Brand: " + Brand + " and Size: " + Size);
         }
 
-        public void Return(string Brand, string Size)
+        public void Return(SkiBrands Brand, SkiSizes Size)
         {
-            foreach (SkiBase ski in Ski)
+            foreach (SkiBase ski in Ski[Brand])
             {
                 if (ski.Brand == Brand & ski.SkiSize == Size)
                 {
@@ -66,90 +91,35 @@ namespace SkiResort
         {
             Console.WriteLine("-----------");
             Console.WriteLine("Ski List:");
-            foreach (SkiBase ski in Ski)
-
+            foreach (SkiBrands skiBrand in Ski.Keys)
             {
-                if (ski.isAvailable)
+                foreach (SkiBase ski in Ski[skiBrand])
                 {
-
-                    if (ski.Type == 1)
-                    {
-
-                        Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                            " Ski Rent Price: " + ski.RentPrice + "Availability: " + ski.isAvailable);
-                    }
-
-                    else if (ski.Type == 2)
-                    {
-
-                        Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                            " Ski Rent Price: " + ski.RentPrice + " Availability: " + ski.isAvailable);
-                    }
-
-                    else if (ski.Type == 3)
-                    {
-
-                        Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                            " Ski Rent Price: " + ski.RentPrice + " Availability: " + ski.isAvailable);
-                    }
-                    else if (ski.Type == 4)
-                    {
-
-                        Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                            " Ski Rent Price: " + ski.RentPrice + " Availability: " + ski.isAvailable);
-                    }
-                    else
-                    {
-
-                        Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                            " Ski Rent Price: " + ski.RentPrice + " Availability: " + ski.isAvailable);
-                    }
+                    if(ski.isAvailable) printSkiInfo(ski);
                 }
             }
+
         }
 
-            public void listFullSkiList()
+        public void listFullSkiList()
+        {
+        Console.WriteLine("-----------");
+        Console.WriteLine("Ski List:");
+            foreach (SkiBrands skiBrand in Ski.Keys)
             {
-            Console.WriteLine("-----------");
-            Console.WriteLine("Ski List:");
-            foreach (SkiBase ski in Ski)
-
-            {
-                if (ski.Type == 1) {
-                   
-                    Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                        " Ski Rent Price: " + ski.RentPrice + "Availability: " + ski.isAvailable);
-                }
-
-                else if(ski.Type == 2)
+                foreach(SkiBase ski in Ski[skiBrand])
                 {
-                  
-                    Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                        " Ski Rent Price: " + ski.RentPrice + " Availability: " + ski.isAvailable);
-                }
-
-                else if(ski.Type == 3)
-                {
-                   
-                    Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                        " Ski Rent Price: " + ski.RentPrice + " Availability: " + ski.isAvailable);
-                }
-                else if(ski.Type == 4)
-                {
-                   
-                    Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                        " Ski Rent Price: " + ski.RentPrice + " Availability: " + ski.isAvailable);
-                }
-                else
-                {
-                   
-                    Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
-                        " Ski Rent Price: " + ski.RentPrice + " Availability: " + ski.isAvailable);
+                    printSkiInfo(ski);
                 }
             }
+   
+        }
 
-            
-            } 
+        private void printSkiInfo(SkiBase ski)
+        {
+            Console.WriteLine("Ski Brand: " + ski.Brand + " Ski Size: " + ski.SkiSize +
+                " Ski Rent Price: " + ski.RentPrice + " Availability: " + ski.isAvailable);
+        }
     }
 }
 

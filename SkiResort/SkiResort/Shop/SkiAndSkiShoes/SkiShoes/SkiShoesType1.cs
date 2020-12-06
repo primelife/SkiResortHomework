@@ -4,7 +4,7 @@ namespace SkiResort.SkiResort.Shop.Base.Ski
     public class SkiShoesType1 : SkiBase
     {
 
-        public SkiShoesType1(string Brand, double RentPrice, string SkiShoeSize, int Type)
+        public SkiShoesType1(int shoeSize)
             : base(Brand, RentPrice, SkiShoeSize, Type)
         {
 
