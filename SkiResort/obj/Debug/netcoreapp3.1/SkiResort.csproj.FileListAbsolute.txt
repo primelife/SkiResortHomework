@@ -1,0 +1,12 @@
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.csprojAssemblyReference.cache
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.AssemblyInfoInputs.cache
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.AssemblyInfo.cs
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.csproj.CoreCompileInputs.cache
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.deps.json
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.runtimeconfig.json
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.runtimeconfig.dev.json
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.dll
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.pdb
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.dll
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.pdb
+/Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.genruntimeconfig.cache
