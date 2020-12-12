@@ -10,3 +10,15 @@
 /Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.dll
 /Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.pdb
 /Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.genruntimeconfig.cache
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.deps.json
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.runtimeconfig.json
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.runtimeconfig.dev.json
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.dll
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/bin/Debug/netcoreapp3.1/SkiResort.pdb
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.csprojAssemblyReference.cache
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.AssemblyInfoInputs.cache
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.AssemblyInfo.cs
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.csproj.CoreCompileInputs.cache
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.dll
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.pdb
+/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/obj/Debug/netcoreapp3.1/SkiResort.genruntimeconfig.cache

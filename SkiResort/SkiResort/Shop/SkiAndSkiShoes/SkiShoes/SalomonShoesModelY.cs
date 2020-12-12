@@ -3,21 +3,12 @@ namespace SkiResort
 {
     public class SalomonShoesModelY : SkiShoesBase
     {
-        private int lowerRange { get; }
-        private int higherRange { get; }
 
-        public SalomonShoesModelY(int lowerSizeRange, int higherSizeRange)
-         : base(SkiShoesBrands.Salomon, SkiShoesFitType.Race, 269.99)
+        public SalomonShoesModelY(int ShoeSize)
+         : base(SkiShoesBrands.Salomon, SkiShoesFitType.Race, 269.99, ShoeSize)
         {
-            this.lowerRange = lowerSizeRange;
-            this.higherRange = higherSizeRange;
-            addSizes();
         }
 
-        public void addSizes()
-        {
-            AddSizesToList(lowerRange, higherRange);
-        }
 
         public override void Description()
         {

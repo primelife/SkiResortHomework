@@ -8,6 +8,7 @@ namespace SkiResort
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             //SkiShop.listAvailableShoeSizes(SkiShoesBrands.Fischer);
 
             SkiVillage Bansko = new SkiVillage();

@@ -5,22 +5,10 @@ namespace SkiResort
 {
     public class FischerShoesModelS : SkiShoesBase
     {
-        private int lowerRange { get; }
-        private int higherRange { get; }
-        private List<int> sizeList = new List<int>(0);
 
-        public FischerShoesModelS(int lowerSizeRange, int higherSizeRange)
-         : base(SkiShoesBrands.Fischer, SkiShoesFitType.Race, 199.99)
-        {
-            this.lowerRange = lowerSizeRange;
-            this.higherRange = higherSizeRange;
-            addSizes();
-        }
-
-        public void addSizes()
-        {
-            AddSizesToList(lowerRange, higherRange);
-        }
+        public FischerShoesModelS(int ShoeSize)
+         : base(SkiShoesBrands.Fischer, SkiShoesFitType.Race, 199.99, ShoeSize)
+        {        }
 
         public override void Description()
         {

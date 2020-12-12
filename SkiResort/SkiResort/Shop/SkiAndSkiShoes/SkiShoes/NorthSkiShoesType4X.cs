@@ -3,20 +3,9 @@ namespace SkiResort
 {
     public class NorthSkiShoesType4X : SkiShoesBase
     {
-        private int lowerRange { get; }
-        private int higherRange { get; }
-
-        public NorthSkiShoesType4X(int lowerSizeRange, int higherSizeRange)
-         : base(SkiShoesBrands.North, SkiShoesFitType.Touring, 1499.99)
+        public NorthSkiShoesType4X(int ShoeSize)
+         : base(SkiShoesBrands.North, SkiShoesFitType.Touring, 1499.99, ShoeSize)
         {
-            this.lowerRange = lowerSizeRange;
-            this.higherRange = higherSizeRange;
-            addSizes();
-        }
-
-        public void addSizes()
-        {
-            AddSizesToList(lowerRange, higherRange);
         }
 
         public override void Description()

@@ -8,76 +8,28 @@ namespace SkiResort
         //public List<int> SkiShoesSizes = new List<int>();
         // What is the SHOE? Brand fitype, rentprice values. This answers that
         // What is the size, thats all.
-        public List<int> AvailableSkiShoesSizes = new List<int>();
+        public int ShoeSize { get; }
         public SkiShoesBrands Brand { get; }
         public SkiShoesFitType fitType { get; }  
         public double RentPrice { get; }
-        public bool isAvailable = true;
-        public bool sizeAvailability = true;
+        public bool SizeAvailable { get; set; }
 
 
 
-        protected SkiShoesBase(SkiShoesBrands Brand, SkiShoesFitType fitType,
-            double RentPrice)
+    protected SkiShoesBase(SkiShoesBrands Brand,
+            SkiShoesFitType fitType,
+            double RentPrice,
+            int ShoeSize)
         {
             this.fitType = fitType;
             this.Brand = Brand;
             this.RentPrice = RentPrice;
+            this.ShoeSize = ShoeSize;
+            this.SizeAvailable = true;
         }
 
-        public void AddSizesToList(int lowerRange, int higherRange)
-        {
-            for (int i = lowerRange; i<= higherRange; i++)
-            {
-                //SkiShoesSizes.Add(i);
-                AvailableSkiShoesSizes.Add(i);
-            }
-        }
-
-        public void PrintAvailableShoeSizes()
-        {
-            AvailableSkiShoesSizes.Sort();
-            foreach(int PrintSkiShoes in AvailableSkiShoesSizes)
-            {
-                Console.WriteLine("**" + PrintSkiShoes + " **");
-            }
-            
-        }
 
         public abstract void Description();
-
-        
-        public bool isSizeAvailable(int Size)
-        {
-            if (AvailableSkiShoesSizes.Contains(Size)) 
-            {
-                return true;
-            }
-            return false;           
-        }
-        
-        public void availSkiShoesSizeCheck()
-        {
-            //for (int i = 0; i<= AvailableSkiShoesSizes.Count; i ++)
-            //{
-                
-            //}
-
-            foreach (int Object in AvailableSkiShoesSizes)
-            {
-                Console.Write(Object);
-            }
-            
-        }
-
-        public void listOfShoes()
-        {
-            foreach (int Object in AvailableSkiShoesSizes)
-            {
-                Console.Write(Object);
-            }
-        }
-
 
 
         // How to make abstract class. This gives us the capability

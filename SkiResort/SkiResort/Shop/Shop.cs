@@ -45,10 +45,13 @@ namespace SkiResort
 
         private void populateSkiShoes()
         {
-            AddSkiShoes(new FischerShoesModelS(35,45));
-            AddSkiShoes(new NordicaShoesModelE(35, 45));
-            AddSkiShoes(new NorthSkiShoesType4X(35, 45));
-            AddSkiShoes(new SalomonShoesModelY(35, 45));
+            for(int i = 35; i < 46; i++)
+            {
+                AddSkiShoes(new FischerShoesModelS(i));
+                AddSkiShoes(new NordicaShoesModelE(i));
+                AddSkiShoes(new NorthSkiShoesType4X(i));
+                AddSkiShoes(new SalomonShoesModelY(i));
+            }
         }
 
         private void AddSki(SkiBase inputSki)
@@ -100,12 +103,13 @@ namespace SkiResort
         {
 
 
-            foreach (SkiShoesBase skiShoes in SkiShoes[Brand])
+            foreach (SkiShoesBase shoe in SkiShoes[Brand])
             {
-                if (skiShoes.Brand == Brand && skiShoes.isSizeAvailable(Size))
+                if (shoe.Brand == Brand && shoe.ShoeSize == Size)
                 {
-                Console.WriteLine("--------");  
-                skiShoes.AvailableSkiShoesSizes.Remove(Size);
+                Console.WriteLine("--------");
+
+                    shoe.SizeAvailable = false;
                 Console.WriteLine("Succesfully rented SkiShoes " + Brand + " Size: " + Size);
                 return;
                 }               
@@ -115,11 +119,11 @@ namespace SkiResort
 
         public void ReturnSkiShoes(SkiShoesBrands Brand, int Size)
         {
-            foreach (SkiShoesBase skiShoes in SkiShoes[Brand])
+            foreach (SkiShoesBase shoe in SkiShoes[Brand])
             {
-                if (skiShoes.Brand == Brand & !skiShoes.isSizeAvailable(Size))
+                if (shoe.Brand == Brand & !shoe.SizeAvailable)
                 {
-                    skiShoes.AvailableSkiShoesSizes.Add(Size);
+                    shoe.SizeAvailable = true;
                     Console.WriteLine("You've returned SkiShoe " + Brand + " Size: " + Size);
                         return;
                     }
@@ -144,13 +148,11 @@ namespace SkiResort
             }
         }
 
-        public void SkiShoesDescription(SkiShoesBrands shoebranding)
-
+        public void SkiShoesDescription(SkiShoesBrands shoebrand)
         {
-            List<SkiShoesBase> skiShoesBaseList = SkiShoes[shoebranding];
-            foreach (SkiShoesBase skiShoesObject in skiShoesBaseList)
+            foreach (SkiShoesBase shoe in SkiShoes[shoebrand])
             {
-                skiShoesObject.Description();
+                shoe.Description();
             }
         }
 
@@ -160,23 +162,17 @@ namespace SkiResort
             Console.WriteLine("Avaible Ski List:");
             foreach (SkiBase ski in Ski[Brand])
             {
-                if (ski.isAvailable) printSkiInfo(ski);
+                if (ski.isAvailable) ski.Description();
                
-
-                //foreach (SkiBase ski in Ski[skiBrand])
-                //{
-                //    if (ski.isAvailable) printSkiInfo(ski);
-                //}
             }
 
         }
 
         public void listAvailableShoeSizes(SkiShoesBrands brand)
         {
-            List<SkiShoesBase> skiBaseSizes = SkiShoes[brand];
-            foreach (SkiShoesBase skiShoeObject in skiBaseSizes)
+            foreach (SkiShoesBase shoe in SkiShoes[brand])
             {
-                skiShoeObject.PrintAvailableShoeSizes();
+                if (shoe.SizeAvailable) shoe.Description();
             }
         }
 
@@ -188,17 +184,11 @@ namespace SkiResort
             {
                 foreach (SkiBase ski in Ski[skiBrand])
                 {
-                    printSkiInfo(ski);
+                    ski.PrintAvailability();
                     break;
                 }
             }
 
-        }
- 
-
-        private void printSkiInfo(SkiBase ski)
-        {
-            ski.PrintAvailability();
         }
 
         public void  listFullSkiShoesList()
@@ -207,21 +197,14 @@ namespace SkiResort
             Console.WriteLine("SkiShoes Brands:");
             foreach (SkiShoesBrands skiShoesBrand in SkiShoes.Keys)
             {
-               foreach (SkiShoesBase skiShoes in SkiShoes[skiShoesBrand])
+               foreach (SkiShoesBase ski in SkiShoes[skiShoesBrand])
                 {
-                    Console.WriteLine(skiShoes.Brand);
+                    ski.Description();
                 }
               
             }
 
         }
-
-        private void printSkiShoesInfo(SkiShoesBase skiShoes)
-        {
-            skiShoes.availSkiShoesSizeCheck();
-            
-        }
-
 
 
     }
