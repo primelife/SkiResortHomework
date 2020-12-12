@@ -1,10 +1,10 @@
 ﻿using System;
 namespace SkiResort
 {
-    public class HondaSkiModelX : SkiBase
+    public class YamahaSkiModelZ : SkiBase
     {
-        public HondaSkiModelX()
-            : base(SkiBrands.Honda, SkiSizes.Medium, SkiExperienceLevel.Beginner, 99.99)
+        public YamahaSkiModelZ()
+            : base(SkiBrands.Yamaha, SkiSizes.Large, SkiExperienceLevel.Intermediate, 499.99)
         {
 
         }
@@ -14,8 +14,7 @@ namespace SkiResort
         {
             Console.WriteLine("This is Model: " + Brand + " with Size: " +
                 SkiSize + ". Level is: " + ExperienceLevel + " price: " +
-                RentPrice);           
+                RentPrice);
         }
-
     }
 }

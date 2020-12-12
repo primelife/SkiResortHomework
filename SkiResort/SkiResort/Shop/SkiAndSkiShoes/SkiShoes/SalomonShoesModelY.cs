@@ -1,0 +1,30 @@
+﻿using System;
+namespace SkiResort
+{
+    public class SalomonShoesModelY : SkiShoesBase
+    {
+        private int lowerRange { get; }
+        private int higherRange { get; }
+
+        public SalomonShoesModelY(int lowerSizeRange, int higherSizeRange)
+         : base(SkiShoesBrands.Salomon, SkiShoesFitType.Race, 269.99)
+        {
+            this.lowerRange = lowerSizeRange;
+            this.higherRange = higherSizeRange;
+            addSizes();
+        }
+
+        public void addSizes()
+        {
+            AddSizesToList(lowerRange, higherRange);
+        }
+
+        public override void Description()
+        {
+            Console.WriteLine("--------");
+            Console.WriteLine("This is Model: " + Brand + " " +
+                "has fitType: " +
+                fitType + ". RentPrice is: " + RentPrice);
+        }
+    }
+}

@@ -1,16 +1,5 @@
 ﻿<Properties StartupConfiguration="{0787A0ED-AB00-4CFA-94A1-83C7B5E9EDC3}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SkiResort/SkiResort/Shop/SkiAndSkiShoes/SkiShoes/SkiShoesType1.cs">
-    <Files>
-      <File FileName="SkiResort/SkiResort/Shop/SkiAndSkiShoes/Ski/Base/SkiSizes.cs" Line="1" Column="1" />
-      <File FileName="SkiResort/SkiResort/Shop/SkiAndSkiShoes/Ski/Base/SkiTypes.cs" Line="1" Column="1" />
-      <File FileName="SkiResort/SkiResort/Shop/SkiAndSkiShoes/Ski/Base/SkiExperienceLevel.cs" Line="1" Column="1" />
-      <File FileName="SkiResort/SkiResort/Shop/SkiAndSkiShoes/Ski/Base/SkiBase.cs" Line="1" Column="1" />
-      <File FileName="SkiResort/SkiResort/Shop/SkiAndSkiShoes/Ski/HondaSkiModelX.cs" Line="2" Column="20" />
-      <File FileName="SkiResort/SkiResort/Shop/Shop.cs" Line="35" Column="1" />
-      <File FileName="SkiResort/Main.cs" Line="33" Column="1" />
-      <File FileName="SkiResort/SkiResort/Shop/SkiAndSkiShoes/SkiShoes/Base/SkiShoesBase.cs" Line="15" Column="91" />
-      <File FileName="SkiResort/SkiResort/Shop/SkiAndSkiShoes/SkiShoes/SkiShoesType1.cs" Line="7" Column="65" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -24,11 +13,11 @@
                     </Node>
                     <Node name="SkiShoes" expanded="True">
                       <Node name="Base" expanded="True" />
-                      <Node name="SkiShoesType1.cs" selected="True" />
                     </Node>
                   </Node>
                 </Node>
               </Node>
+              <Node name="Main.cs" selected="True" />
             </Node>
           </Node>
         </State>
