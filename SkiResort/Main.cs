@@ -12,14 +12,9 @@ namespace SkiResort
 
             SkiVillage Bansko = new SkiVillage();
             
-            John john = new John();
-            Mary mary = new Mary();
-            SkiShop skiShop = new SkiShop();
+            VisitorBase john = new VisitorBase(16,"John");
+            VisitorBase mary = new VisitorBase(50,"Mary");
 
-            Balkaniada balkaniada = new Balkaniada();
-            Todorka todorka = new Todorka();
-            Tomba tomba = new Tomba();
-            HondaSkiModelX hondaSkiModelX = new HondaSkiModelX();
 
             // User rentind capabilities for Ski and Shoes.
 
@@ -27,23 +22,22 @@ namespace SkiResort
             Bansko.RentSki(john, SkiBrands.Honda, SkiSizes.Medium);
             Bansko.RentSkiShoes(john, SkiShoesBrands.Fischer, 36);
             Bansko.UserRentedEquipment(john);
-            Bansko.ReturnSki(john, SkiBrands.Honda, SkiSizes.Medium);
-            Bansko.ReturnSkiShoes(john, SkiShoesBrands.Fischer, 36);
+            Bansko.ReturnSki(john);
+            Bansko.ReturnSkiShoes(john);
             Bansko.UserRentedEquipment(john);
 
             //Bansko.SlopesInfo();
 
 
             //Buying and Using SLides Capabilities;
-            Bansko.BuySlides(john, balkaniada, 10);
-            Bansko.PrinteAvailableSlides(john);
-            Bansko.PrintPistCapacity(balkaniada);
-            Bansko.PrintPistCapacity(balkaniada);
+            Bansko.BuySlides(john, SlopeName.Balkaniada, 10);
+            Bansko.PrintPistCapacity(SlopeName.Balkaniada);
+            Bansko.PrintPistCapacity(SlopeName.Balkaniada);
 
-            Bansko.UseAvailableSlides(john, balkaniada, 10, hondaSkiModelX);
+            Bansko.UseAvailableSlides(john, SlopeName.Balkaniada);
 
-            Bansko.PrintRentedEquipmentDurability(john, hondaSkiModelX);
-            Bansko.PrintPistCapacity(balkaniada);
+            Bansko.PrintRentedEquipmentDurability(john);
+            Bansko.PrintPistCapacity(SlopeName.Balkaniada);
             // i need reference by type for printpistcapacity  so I can get real - time slide capacity otherwise it doesnt work
 
 

@@ -3,10 +3,10 @@
 namespace SkiResort
 
 {
-    public class Tomba : slopeBase
+    public class Tomba : SlopeBase
     {
-        public Tomba() : base(slopeName.Tomba, slopeDurabilityCost.high, slopeDifficulty.intermediate,
-            slopeSize.medium, 10 , 15)
+        public Tomba() : base(SlopeName.Tomba, SlopeDurabilityCost.High, SlopeDifficulty.Intermediate,
+            SlopeSize.Medium, 10 , 15)
         {
         }
     }

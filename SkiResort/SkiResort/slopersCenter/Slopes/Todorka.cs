@@ -2,9 +2,9 @@
 
 namespace SkiResort
 {
-    public class Todorka : slopeBase
+    public class Todorka : SlopeBase
     {
-        public Todorka() : base(slopeName.Todorka, slopeDurabilityCost.mid, slopeDifficulty.expert, slopeSize.large, 15, 20)
+        public Todorka() : base(SlopeName.Todorka, SlopeDurabilityCost.Mid, SlopeDifficulty.Expert, SlopeSize.Large, 15, 20)
         {
         }
     }

@@ -8,20 +8,10 @@ namespace SkiResort
     {
 
         private SkiShop skiShop;
-        private Dictionary<slopeDifficulty, List<slopeBase>> SlopesCollection =
-            new Dictionary<slopeDifficulty, List<slopeBase>>();
-        private List<visitorBase> VisitorsCollection = new List<visitorBase>();
+        private Dictionary<SlopeDifficulty, List<SlopeBase>> DifficultySlopes =
+            new Dictionary<SlopeDifficulty, List<SlopeBase>>();
 
-        // I am not sure how to initialize the Visitors:
-        // So I did it the static way so I can atleast make the code work.
-
-        //private Dictionary<VisitorAgeGroup, List<visitorBase>> VisitorsCollection =
-        //new Dictionary<VisitorAgeGroup, List<visitorBase>>();
-
-        // I am not sure how to initialize the Visitors:
-        // So I did it the static way so I can atleast make the code work.
-
-
+        private Dictionary<SlopeName, SlopeBase> NamedSlopes = new Dictionary<SlopeName, SlopeBase>();
 
         public SkiVillage()
         {
@@ -34,20 +24,13 @@ namespace SkiResort
 
         private void initDictionary()
         {
-            foreach (slopeDifficulty slopeDifficulty in Enum.GetValues(typeof(slopeDifficulty)))
+            foreach (SlopeDifficulty slopeDifficulty in Enum.GetValues(typeof(SlopeDifficulty)))
             {
-                SlopesCollection[slopeDifficulty] = new List<slopeBase>();
+                DifficultySlopes[slopeDifficulty] = new List<SlopeBase>();
             }          
         }
            
-
-        //public void addVisitors()
-        //{
-        //    VisitorsCollection.Add();
-        //    VisitorsCollection.Add(mary);
-        //}
-
-        public void PopulateSlopes()
+        private void PopulateSlopes()
         {
             AddSlope(new Balkaniada());
             AddSlope(new Todorka());
@@ -56,18 +39,18 @@ namespace SkiResort
 
      
 
-        public void AddSlope(slopeBase inputSlope)
+        private void AddSlope(SlopeBase inputSlope)
         {
-            SlopesCollection[inputSlope.pistDifficulty].Add(inputSlope);
-
+            DifficultySlopes[inputSlope.pistDifficulty].Add(inputSlope);
+            NamedSlopes[inputSlope.pistname] = inputSlope;
         }
 
         public void SlopesInfo()
         {
             Console.WriteLine("-----------");
-            foreach (slopeDifficulty slopeLevel in SlopesCollection.Keys)
+            foreach (SlopeDifficulty slopeLevel in DifficultySlopes.Keys)
             {
-                foreach (slopeBase slope in SlopesCollection[slopeLevel])
+                foreach (SlopeBase slope in DifficultySlopes[slopeLevel])
                 {
                     slope.Description();
                     break;
@@ -75,51 +58,31 @@ namespace SkiResort
             }
         }
 
-        //public void VisitorsInfo()
-        //{
-        //    Console.WriteLine("-----------");
-        //    foreach (VisitorAgeGroup visitorGroup in VisitorsCollection.Keys)
-        //    {
-        //        foreach (visitorBase visitor in VisitorsCollection[visitorGroup])
-        //        {
-        //            visitor.Description();
-        //            break;
-        //        }
-        //    }
-        //}
-
-      
-
-        //public visitorBase getVisitor()
-        //{
-
-        //    return VisitorsCollection;
-
-
-        //}
-
-        public void UseAvailableSlides(visitorBase visitor, slopeBase slope, int totalSlides, SkiBase ski)
+        public void UseAvailableSlides(VisitorBase visitor, SlopeName slopeName)
         {
-            
-            
-                visitor.DeductSlides(slope, totalSlides);
-                visitor.CauseDamageSki(slope, ski, totalSlides);
 
-            
-            
+
+            SlopeBase slope = NamedSlopes[slopeName];
+            if ( visitor.getAvailableSlidesForSlope(slope.pistname) > 0 && visitor.visitorHasEquipment() )
+            {
+                slope.ReduceCapacity();
+                visitor.deductSlideForSlope(slope.pistname);
+                visitor.CauseDamageSki(slope.getDurabilityCost());
+            }
         }
 
-        public void BuySlides(visitorBase visitor, slopeBase Slope, int TotalSlides)
+        public void BuySlides(VisitorBase visitor, SlopeName slopeName, int totalSlides)
         {
-            if (Slope.Capacity > 0 && Slope.Capacity - TotalSlides >= 0)
+            SlopeBase slope = NamedSlopes[slopeName];
+            if (slope.Capacity > 0 && slope.Capacity - totalSlides >= 0)
             {
-                visitor.addSlides(Slope, TotalSlides);
-                visitor.recalcMoney(Slope.PricePerSlide, TotalSlides);
-                Console.WriteLine(visitor.Name + " thank you for purchasing Slides: " + TotalSlides + " for Slope: "
-                    + Slope.pistname + " Price per Slide is: " + Slope.PricePerSlide);
+                visitor.addSlides(slope.pistname, totalSlides);
+                visitor.reduceUserBalance(slope.PricePerSlide * totalSlides);
+                Console.WriteLine(visitor.Name + " thank you for purchasing Slides: " + totalSlides + " for Slope: "
+                    + slope.pistname + " Price per Slide is: " + slope.PricePerSlide);
                 return;
             }
-            Console.WriteLine(Slope.pistname + " has no more Slides Capicity");
+            Console.WriteLine(slope.pistname + " has no more Slides Capicity");
             return;
         }
 
@@ -128,45 +91,40 @@ namespace SkiResort
             skiShop.listFullSkiList();
         }
 
-        public void RentSki(visitorBase visitor , SkiBrands brand, SkiSizes size)
+        public void RentSki(VisitorBase visitor , SkiBrands brand, SkiSizes size)
         {
             skiShop.RentSki(visitor, brand,size);
             
         }
 
-        public void RentSkiShoes(visitorBase visitor, SkiShoesBrands brand, int size)
+        public void RentSkiShoes(VisitorBase visitor, SkiShoesBrands brand, int size)
         {
             skiShop.RentSkiShoes(visitor, brand, size);
         }
 
-        public void UserRentedEquipment(visitorBase visitor)
+        public void UserRentedEquipment(VisitorBase visitor)
         {
             visitor.Description();
         }
 
-        public void ReturnSki(visitorBase visitor, SkiBrands brand, SkiSizes size)
+        public void ReturnSki(VisitorBase visitor)
         {
-            skiShop.ReturnSki(visitor, brand, size);
+            skiShop.ReturnSki(visitor);
         }
 
-        public void ReturnSkiShoes(visitorBase visitor, SkiShoesBrands brand, int size)
+        public void ReturnSkiShoes(VisitorBase visitor)
         {
-            skiShop.ReturnSkiShoes(visitor, brand, size);
+            skiShop.ReturnSkiShoes(visitor);
         }
 
-        public void PrinteAvailableSlides (visitorBase visitor)
+        public void PrintPistCapacity(SlopeName slopeName)
         {
-            visitor.PrintAvailableSlides();
+            Console.WriteLine(slopeName + " has capacity " + NamedSlopes[slopeName].Capacity);
         }
 
-        public void PrintPistCapacity(slopeBase slope)
+        public void PrintRentedEquipmentDurability(VisitorBase visitor)
         {
-            Console.WriteLine(slope.pistname + " has capacity " + slope.GetCapacity());
-        }
-
-        public void PrintRentedEquipmentDurability(visitorBase visitor, SkiBase ski)
-        {
-            visitor.GetEquipmentDurability(ski);
+            visitor.GetEquipmentDurability();
         }
 
 

@@ -8,7 +8,7 @@ namespace SkiResort
     {
 
 
-        private visitorBase ShopVisitor { get;  }
+        private VisitorBase ShopVisitor { get;  }
         private Dictionary<SkiBrands, List<SkiBase>> Ski = new Dictionary<SkiBrands, List<SkiBase>>();
         private Dictionary<SkiShoesBrands, List<SkiShoesBase>> SkiShoes
             = new Dictionary<SkiShoesBrands, List<SkiShoesBase>>();
@@ -64,7 +64,7 @@ namespace SkiResort
             SkiShoes[inputSkiShoes.Brand].Add(inputSkiShoes);
         }
 
-        public SkiBase RentSki(visitorBase visitor,SkiBrands Brand, SkiSizes Size)
+        public void RentSki(VisitorBase visitor,SkiBrands Brand, SkiSizes Size)
         {
 
 
@@ -73,40 +73,36 @@ namespace SkiResort
                 if (ski.Brand == Brand & ski.SkiSize == Size)
                 {
                     ski.isAvailable = false;
-                    visitor.AddToRentedSKiList(ski);
+                    visitor.setRentedSki(ski);
                     
                     Console.WriteLine("You've rented Ski " + Brand + " Size: " + Size);
-                    return ski;
                 }
 
 
             }
             Console.WriteLine("There is no item with Brand: " + Brand + " and Size: " + Size);
-            return null;
         }
 
 
-        public SkiBase ReturnSki(visitorBase visitor, SkiBrands Brand, SkiSizes Size)
+        public void ReturnSki(VisitorBase visitor)
         {
-            foreach (SkiBase ski in Ski[Brand])
+            foreach (SkiBase ski in Ski[visitor.RentedSki.Brand])
             {
-                if (ski.Brand == Brand & ski.SkiSize == Size)
+                if (ski.SkiSize == visitor.RentedSki.SkiSize)
                 {
                     ski.isAvailable = true;
-                    visitor.RemoveFromRentedSKiList(ski);
-
-                    Console.WriteLine("You've return Ski " + Brand + " Size: " + Size);
-                    return ski;
+                    Console.WriteLine("You've return Ski " + visitor.RentedSki.Brand + " Size: " + visitor.RentedSki.SkiSize);
+                    visitor.setRentedSki(null);
+                    return;
                 }
 
 
             }
-            Console.WriteLine("There is no item with Brand: " + Brand + " and Size: " + Size);
-            return null;
+            Console.WriteLine("There is no item with Brand: " + visitor.RentedSki.Brand + " and Size: " + visitor.RentedSki.SkiSize);
 
         }
 
-        public SkiShoesBase RentSkiShoes(visitorBase visitor, SkiShoesBrands Brand, int Size)
+        public void RentSkiShoes(VisitorBase visitor, SkiShoesBrands Brand, int Size)
         {
 
 
@@ -117,33 +113,32 @@ namespace SkiResort
                     Console.WriteLine("--------");
 
                     shoe.SizeAvailable = false;
-                    visitor.AddToRentedSKiShoesList(shoe);
+                    visitor.setRentedSkiShoes(shoe);
 
                     Console.WriteLine("Succesfully rented SkiShoes " + Brand + " Size: " + Size);
-                    return shoe;
+                    return;
                 }
             }
             Console.WriteLine("There is no item with Brand: " + Brand + " and Size: " + Size);
-            return null;
 
         }
 
 
-        public void ReturnSkiShoes(visitorBase visitor, SkiShoesBrands Brand, int Size)
+        public void ReturnSkiShoes(VisitorBase visitor)
         {
-            foreach (SkiShoesBase shoe in SkiShoes[Brand])
+            foreach (SkiShoesBase shoe in SkiShoes[visitor.RentedSkiShoe.Brand])
             {
 
-                if (shoe.Brand == Brand && shoe.ShoeSize == Size)
+                if (shoe.ShoeSize == visitor.RentedSkiShoe.ShoeSize)
                 {
                     shoe.SizeAvailable = true;
-                    visitor.RemoveFromRentedSKiShoesList(shoe);
-                    Console.WriteLine("You've returned SkiShoe " + Brand + " Size: " + Size);
+                    Console.WriteLine("You've returned SkiShoe " + visitor.RentedSkiShoe.Brand + " Size: " + visitor.RentedSkiShoe.ShoeSize);
+                    visitor.setRentedSkiShoes(null);
                     return;
                 }
 
             }
-            Console.WriteLine("There is no item with Brand: " + Brand + " and Size: " + Size);
+            Console.WriteLine("There is no item with Brand: " + visitor.RentedSkiShoe.Brand + " and Size: " + visitor.RentedSkiShoe.ShoeSize);
         }
 
         public void SkiDescription(SkiBrands brand)

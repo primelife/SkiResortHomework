@@ -1,7 +1,7 @@
 ﻿using System;
 namespace SkiResort
 {
-    public enum slopeName
+    public enum SlopeName
     {
         Balkaniada,
         Todorka,

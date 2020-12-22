@@ -3,11 +3,10 @@ using System.Collections.Generic;
 
 namespace SkiResort
 {
-    public class slopesCenter
+    public class SlopesCenter
     {
 
-        public slopesCenter()
-
+        public SlopesCenter()
         {
             
         }

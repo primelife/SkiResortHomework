@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/velislavstoyanov/Projects/SkiResort/SkiResort/SkiResort.csproj": {}
+    "/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/SkiResort.csproj": {}
   },
   "projects": {
-    "/Users/velislavstoyanov/Projects/SkiResort/SkiResort/SkiResort.csproj": {
+    "/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/SkiResort.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/velislavstoyanov/Projects/SkiResort/SkiResort/SkiResort.csproj",
+        "projectUniqueName": "/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/SkiResort.csproj",
         "projectName": "SkiResort",
-        "projectPath": "/Users/velislavstoyanov/Projects/SkiResort/SkiResort/SkiResort.csproj",
-        "packagesPath": "/Users/velislavstoyanov/.nuget/packages/",
-        "outputPath": "/Users/velislavstoyanov/Projects/SkiResort/SkiResort/obj/",
+        "projectPath": "/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/SkiResort.csproj",
+        "packagesPath": "/Users/kanevnik/.nuget/packages/",
+        "outputPath": "/Users/kanevnik/workspace/teaching/SkiResortHomework/SkiResort/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/velislavstoyanov/.config/NuGet/NuGet.Config"
+          "/Users/kanevnik/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -24,6 +24,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -35,6 +36,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -50,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

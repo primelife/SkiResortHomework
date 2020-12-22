@@ -1,14 +1,10 @@
 ﻿<Properties StartupConfiguration="{0787A0ED-AB00-4CFA-94A1-83C7B5E9EDC3}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="SkiResort/Main.cs">
     <Files>
-      <File FileName="SkiResort/Main.cs" Line="104" Column="1" />
-      <File FileName="SkiResort/SkiResort/SkiResort.cs" Line="107" Column="1" />
-      <File FileName="SkiResort/SkiResort/Visitors/Visitors/baseVisitor/visitorBase.cs" Line="100" Column="102" />
-      <File FileName="SkiResort/SkiResort/slopersCenter/Slopes/baseSlope/slopeBase.cs" Line="52" Column="1" />
-      <File FileName="SkiResort/SkiResort/Shop/SkiAndSkiShoes/Ski/Base/SkiBase.cs" Line="72" Column="11" />
-      <File FileName="SkiResort/SkiResort/slopersCenter/Slopes/Balkaniada.cs" Line="1" Column="1" />
-      <File FileName="SkiResort/SkiResort/slopersCenter/slopesCenter.cs" Line="1" Column="1" />
-      <File FileName="SkiResort/SkiResort/Visitors/Visitors/John.cs" Line="1" Column="1" />
+      <File FileName="SkiResort/Main.cs" Line="17" Column="1" />
+      <File FileName="SkiResort/SkiResort/SkiResort.cs" Line="66" Column="107" />
+      <File FileName="SkiResort/SkiResort/Visitors/Visitors/baseVisitor/VisitorBase.cs" Line="56" Column="1" />
+      <File FileName="SkiResort/SkiResort/slopersCenter/SlopesCenter.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,9 +17,6 @@
                     <Node name="Ski" expanded="True">
                       <Node name="Base" expanded="True" />
                     </Node>
-                    <Node name="SkiShoes" expanded="True">
-                      <Node name="Base" expanded="True" />
-                    </Node>
                   </Node>
                 </Node>
                 <Node name="slopersCenter" expanded="True">
@@ -34,10 +27,10 @@
                 <Node name="Visitors" expanded="True">
                   <Node name="Visitors" expanded="True">
                     <Node name="baseVisitor" expanded="True" />
-                    <Node name="Mary.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
+              <Node name="Main.cs" selected="True" />
             </Node>
           </Node>
         </State>

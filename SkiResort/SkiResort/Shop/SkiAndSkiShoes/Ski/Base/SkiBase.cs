@@ -8,7 +8,7 @@ namespace SkiResort
         public SkiSizes SkiSize { get; }
         public double RentPrice { get; }
         public bool isAvailable = true;
-        public int Durability = 100;
+        private int Durability = 100;
 
         protected SkiBase(SkiBrands Brand, SkiSizes SkiSize, SkiExperienceLevel ExperienceLevel, double RentPrice)
 
@@ -20,13 +20,6 @@ namespace SkiResort
         }
 
 
-        //all classes extending SkiBase will use this method
-        //unless the current implementation has an override
-
-        // The way to write this is:
-
-        // public virtual void methodName
-        // ovveride public void methodName (in extending class)
         public virtual void Description()
         {
             Console.WriteLine("This is Model: " + Brand + "with Size: " +
@@ -44,32 +37,17 @@ namespace SkiResort
             Console.WriteLine(" Item: " + Brand + "(Size: " + SkiSize + ") is not available ");
         }
 
-        public void reCalcDurability(slopeBase slope, int slides)
+        public void reduceDurability(int creditDurability)
         {
-                
-            
+            Durability -= creditDurability;
+            Console.WriteLine("Reduced Durability by " + creditDurability);
+            recalcAvailability();
+        }
 
-            if (slope.pistDurabilityCost == slopeDurabilityCost.low)
-            {
-                Durability = Durability - 10 * slides;
-                Console.WriteLine("Reduced Durability by " + 10 * slides);
-                recalcAvailability();
-                return;
-            }
-            else if (slope.pistDurabilityCost == slopeDurabilityCost.mid)
-            {
-                Durability = Durability - 20 * slides;
-                Console.WriteLine("Reduced Durability by " + 20 * slides);
-                recalcAvailability();
-                return;
-           
-            }
-                Durability = Durability - 30 * slides;
-            Console.WriteLine("Reduced Durability by " + 30 * slides);
-
-                recalcAvailability();
-                return;
-            }
+        public int getDurability()
+        {
+            return Durability;
+        }
 
         private void recalcAvailability()
         {

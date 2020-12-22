@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace SkiResort
 {
-    public class slopeBase
+    public class SlopeBase
     {
-        public slopeName pistname { get; }
-        public slopeDurabilityCost pistDurabilityCost { get; }
-        public slopeDifficulty pistDifficulty {get; }
-        public slopeSize pistSize { get;  }
+        public SlopeName pistname { get; }
+        public SlopeDurabilityCost pistDurabilityCost { get; }
+        public SlopeDifficulty pistDifficulty {get; }
+        public SlopeSize pistSize { get;  }
         public int PricePerSlide { get;  }
-        public int Capacity { get; set; }
+        public int Capacity { get; private set; }
        
         
 
 
-        protected slopeBase(slopeName pistname, slopeDurabilityCost pistDurabilityCost, slopeDifficulty pistDifficulty, slopeSize pistSize,
+        protected SlopeBase(SlopeName pistname, SlopeDurabilityCost pistDurabilityCost, SlopeDifficulty pistDifficulty, SlopeSize pistSize,
             int PricePerSlide, int Capacity)           
         {
             this.pistname = pistname;
@@ -35,19 +35,25 @@ namespace SkiResort
 
         }
 
-        public void ReduceCapacity(int NumSlides)
+        public void ReduceCapacity()
         {
-            this.Capacity = Capacity - NumSlides;
+            this.Capacity -= 1;
         }
 
-        public void IncreaseCapacity(int NumSlides)
+        public void IncreaseCapacity()
         {
-            this.Capacity = Capacity + NumSlides;
+            this.Capacity += 1;
         }
 
-        public int GetCapacity()
+        public int getDurabilityCost()
         {
-            return Capacity;
+            switch (pistDurabilityCost)
+            {
+                case SlopeDurabilityCost.Low: return 10;
+                case SlopeDurabilityCost.Mid: return 20;
+                case SlopeDurabilityCost.High: return 30;
+                default: return 0;
+            }
         }
 
 

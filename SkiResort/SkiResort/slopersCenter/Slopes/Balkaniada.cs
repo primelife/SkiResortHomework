@@ -2,9 +2,9 @@
 
 namespace SkiResort
 {
-    public class Balkaniada : slopeBase
+    public class Balkaniada : SlopeBase
     {
-        public Balkaniada() : base(slopeName.Balkaniada, slopeDurabilityCost.low, slopeDifficulty.easy, slopeSize.small, 5, 10)
+        public Balkaniada() : base(SlopeName.Balkaniada, SlopeDurabilityCost.Low, SlopeDifficulty.Easy, SlopeSize.Small, 5, 10)
         {
         }
     }
