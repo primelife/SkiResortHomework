@@ -13,7 +13,8 @@ namespace SkiResort
             Console.WriteLine("--------");
             Console.WriteLine("This is Model: " + Brand + " " +
                 "has fitType: " +
-                fitType + ". RentPrice is: " + RentPrice);
+                fitType + ". RentPrice is: " + RentPrice + " Size: " + ShoeSize
+                + " availability: " + SizeAvailable);
         }
     }
 }

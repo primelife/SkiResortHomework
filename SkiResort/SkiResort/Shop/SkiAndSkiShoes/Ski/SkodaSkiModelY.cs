@@ -3,7 +3,8 @@ namespace SkiResort
 {
     public class SkodaSkiModelY : SkiBase
     {
-        public SkodaSkiModelY()
+
+        public SkodaSkiModelY( )
             : base(SkiBrands.Honda, SkiSizes.Medium, SkiExperienceLevel.Beginner, 99.99)
         {
 

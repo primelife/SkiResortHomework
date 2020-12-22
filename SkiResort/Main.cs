@@ -9,109 +9,121 @@ namespace SkiResort
         static void Main(string[] args)
         {
             Console.Clear();
-            //SkiShop.listAvailableShoeSizes(SkiShoesBrands.Fischer);
 
             SkiVillage Bansko = new SkiVillage();
-            Shop SkiShop = new Shop();
-            Bansko.addShop(SkiShop);
+            
+            John john = new John();
+            Mary mary = new Mary();
+            SkiShop skiShop = new SkiShop();
 
-            // Ski rentring and returning capabilies
-            // Ski Description and Availability display commands.
+            Balkaniada balkaniada = new Balkaniada();
+            Todorka todorka = new Todorka();
+            Tomba tomba = new Tomba();
+            HondaSkiModelX hondaSkiModelX = new HondaSkiModelX();
 
-            //---------------------------------------------------
+            // User rentind capabilities for Ski and Shoes.
 
-            //SkiShop.listFullSkiList();
-            //SkiShop.SkiDescription(SkiBrands.Honda);
-            //SkiShop.RentSki(SkiBrands.Honda, SkiSizes.Medium);
-            //SkiShop.listFullSkiList();
-            //SkiShop.ReturnSki(SkiBrands.Honda, SkiSizes.Medium);
-            //SkiShop.listFullSkiList();
+            Bansko.listFullSkiList();
+            Bansko.RentSki(john, SkiBrands.Honda, SkiSizes.Medium);
+            Bansko.RentSkiShoes(john, SkiShoesBrands.Fischer, 36);
+            Bansko.UserRentedEquipment(john);
+            Bansko.ReturnSki(john, SkiBrands.Honda, SkiSizes.Medium);
+            Bansko.ReturnSkiShoes(john, SkiShoesBrands.Fischer, 36);
+            Bansko.UserRentedEquipment(john);
 
-            //---------------------------------------------------
-
-            //---------------------------------------------------
-
-            SkiShop.listFullSkiShoesList();
-            SkiShop.SkiShoesDescription(SkiShoesBrands.Fischer);
-            SkiShop.RentSkiShoes(SkiShoesBrands.Fischer, 39);
-            SkiShop.listAvailableShoeSizes(SkiShoesBrands.Fischer);
-            SkiShop.ReturnSkiShoes(SkiShoesBrands.Fischer, 39);
-            SkiShop.listAvailableShoeSizes(SkiShoesBrands.Fischer);
-
-            //---------------------------------------------------
-
-            //SkiShop.RentSkiShoes(SkiShoesBrands.Fischer, 42);
-            //SkiShop.listFullSkiShoesList();
-            //SkiShop.ReturnSkiShoes(SkiShoesBrands.Fischer, 42);
-            //SkiShop.listFullSkiShoesList();
+            //Bansko.SlopesInfo();
 
 
+            //Buying and Using SLides Capabilities;
+            Bansko.BuySlides(john, balkaniada, 10);
+            Bansko.PrinteAvailableSlides(john);
+            Bansko.PrintPistCapacity(balkaniada);
+            Bansko.PrintPistCapacity(balkaniada);
 
+            Bansko.UseAvailableSlides(john, balkaniada, 10, hondaSkiModelX);
 
-            // Homework:
-            // 1. Ski Resort - They offer SKI and SKI shoes
-            //    - SKIs have: Brand, Rent Price, Size/Length
-            //    - Shoes have: Brand, Rent Price, Size/Length
-            // 2. Resort offers:
-            //    - 5 types of SKI with 3 sets of each type. (15 total)
-            //    - 4 types of SKI shoes with 2 sets of each shoe size from 35 - 45
-            // 3. Rent SKI, Shoes or Both
-            // 4. Return SKI, Shoes or Both
+            Bansko.PrintRentedEquipmentDurability(john, hondaSkiModelX);
+            Bansko.PrintPistCapacity(balkaniada);
+            // i need reference by type for printpistcapacity  so I can get real - time slide capacity otherwise it doesnt work
 
 
 
 
-
-            //SkiShop.listFullSkiList();
-
-            //Bansko.Rent("Honda", "Large");
-            //SkiShop.listAvailableSki();
-            //Bansko.Return("Honda", "Large");
-            //SkiShop.listAvailableShoeSizes(SkiShoesBrands.Fischer);
-            // Types can be from 1-5;
-            // 1. Showblades (danger level 5)
-            // 2. FreeRide
-            // 3. Racing
-            // 4. FreeStyle
-            // 5. Carving
-
-            // Danger can be from 1-10. This is what makes different types of SKi different.
-
-
-
-            // Select a your choice and populate it's number in "Type"
-
-
-
-
-            //Dictionary<int, string> simpleDictionary = new Dictionary<int, string>();
-
-
-
-
-
-
-            ////simpleDictionary.Add(1, "hello");
-
-            ////simpleDictionary.Get(1); // hello
-
-
-
-            ////simpleDictionary[1] = "";
-            ////string getString = simpleDictionary[1];\
-
-
-
-
-            // Homework
-            // make code pretty
-            // fix rent, return, print descriptions, check availability methods
-            // 
-
-
-            // How to crate SkiShoes (figure out sizes dynamically)
-            // When renting figure get(Brand, ShoeSize)
 
         }
+
+
+
+        //skishop.RentSki(SkiBrands.Skoda, SkiSizes.Medium);
+
+
+
+        //Bansko.VisitorsInfo();
+        //John john = new John();
+
+        //Console.WriteLine(Bansko.getVisitorsCollevtion().Count);
+
+        //Bansko.skiShop.RentSki(John, SkiBrands.Honda, SkiSizes.Large);
+
+
+
+
+        // Ski functionality
+        //---------------------------------------------------
+
+        //SkiShop.SkiDescription(SkiBrands.Honda);
+        //SkiShop.RentSki(SkiBrands.Honda, SkiSizes.Medium);
+        //SkiShop.listFullSkiList();
+        //SkiShop.ReturnSki(SkiBrandsHonda, SkiSizes.Medium);
+        //SkiShop.listFullSkiList();
+
+        //---------------------------------------------------
+
+        // SkiShoes functionality
+        //---------------------------------------------------
+
+        //skiShop.listFullSkiShoesList();
+        //SkiShop.SkiShoesDescription(SkiShoesBrands.Fischer);
+        //SkiShop.RentSkiShoes(SkiShoesBrands.Fischer, 36);
+        //SkiShop.listFullSkiShoesList();
+        //SkiShop.ReturnSkiShoes(SkiShoesBrands.Fischer, 36);
+        //SkiShop.listAvailableShoeSizes(SkiShoesBrands.Fischer);
+
+        //---------------------------------------------------
+
+
+
+
+        // WHAT IS REFENRECE AGAIN? (reference and pointer stuff)
+        // REFERENCE AND POINTER. Bansko Stack, new SkiVillage in HEAP
+        // You cannot create Bansko unless it refference to a Space in the Heap.
+        // 
+        /* HomeWork. Dec 15   SHOW ME BUILDER NEXT TIME (TO NIKI)
+         * 1. Create Human? Create user. Resort visitor. (DONE)
+         * 3. We should have 3 different types of Slopes. Ski Slopes (types of difficulty)DONE
+         * 6. We have multiple Humans(DONE)
+         * 4. This Human (visitor) cannot exceed the limit of humans per Slope. (Done)
+         * 5. Each Slope costs money. Takes money per Slide. User needs to pay for 
+         * every trip up the slope. (ROUGHLY DONE)
+         * 2. This Human should be able to use the Shop Class func. (DONE)
+         * 
+         * 
+         * 2.1 When humans rents Ski he gets a reference to the ski and shoes
+         * he loaned. **************** (DONE)
+         * 
+         * 
+
+         * 
+         * 
+         * 
+
+         * 
+         * Create object that controls the slopes. Bob uses this object
+
+        */
+
+
     }
 }
+
+

@@ -8,8 +8,10 @@ namespace SkiResort
         public SkiSizes SkiSize { get; }
         public double RentPrice { get; }
         public bool isAvailable = true;
+        public int Durability = 100;
 
         protected SkiBase(SkiBrands Brand, SkiSizes SkiSize, SkiExperienceLevel ExperienceLevel, double RentPrice)
+
         {
             this.ExperienceLevel = ExperienceLevel;
             this.Brand = Brand;
@@ -36,12 +38,49 @@ namespace SkiResort
         {
             if (isAvailable)
             {
-                Console.WriteLine(" Item: " + Brand + "(Size: " + SkiSize + ") is available");
+                Console.WriteLine("*Item: " + Brand + "* (Size: " + SkiSize + ") is available");
                 return;
             }
             Console.WriteLine(" Item: " + Brand + "(Size: " + SkiSize + ") is not available ");
         }
 
+        public void reCalcDurability(slopeBase slope, int slides)
+        {
+                
+            
+
+            if (slope.pistDurabilityCost == slopeDurabilityCost.low)
+            {
+                Durability = Durability - 10 * slides;
+                Console.WriteLine("Reduced Durability by " + 10 * slides);
+                recalcAvailability();
+                return;
+            }
+            else if (slope.pistDurabilityCost == slopeDurabilityCost.mid)
+            {
+                Durability = Durability - 20 * slides;
+                Console.WriteLine("Reduced Durability by " + 20 * slides);
+                recalcAvailability();
+                return;
+           
+            }
+                Durability = Durability - 30 * slides;
+            Console.WriteLine("Reduced Durability by " + 30 * slides);
+
+                recalcAvailability();
+                return;
+            }
+
+        private void recalcAvailability()
+        {
+            if (Durability == 0)
+            {
+                isAvailable = false;
+            }
+        }
+
+
     }
+}    
     
-}
+

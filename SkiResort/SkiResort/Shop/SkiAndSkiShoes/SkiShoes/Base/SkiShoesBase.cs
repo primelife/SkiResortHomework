@@ -47,5 +47,7 @@ namespace SkiResort
         // we force the classes extending SkiShoeBase to give body to:
         // Description();
 
+
+        
     }
 }

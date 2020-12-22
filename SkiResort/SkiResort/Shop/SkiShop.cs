@@ -4,21 +4,22 @@ using System.Collections.Generic;
 namespace SkiResort
 
 {
-
-    public class Shop
+    public class SkiShop
     {
 
+
+        private visitorBase ShopVisitor { get;  }
         private Dictionary<SkiBrands, List<SkiBase>> Ski = new Dictionary<SkiBrands, List<SkiBase>>();
         private Dictionary<SkiShoesBrands, List<SkiShoesBase>> SkiShoes
             = new Dictionary<SkiShoesBrands, List<SkiShoesBase>>();
 
-        public Shop()
+        public SkiShop()
         {
             initDictionary();
             populateSki();
             populateSkiShoes();
         }
-       
+
         private void initDictionary()
         {
             foreach (SkiBrands skiBrand in Enum.GetValues(typeof(SkiBrands)))
@@ -32,9 +33,8 @@ namespace SkiResort
             }
         }
 
-
         private void populateSki()
-        {          
+        {
             AddSki(new HondaSkiModelX());
             AddSki(new SkodaSkiModelY());
             AddSki(new SuzukiSkiModelSpeed());
@@ -45,7 +45,7 @@ namespace SkiResort
 
         private void populateSkiShoes()
         {
-            for(int i = 35; i < 46; i++)
+            for (int i = 35; i < 37; i++)
             {
                 AddSkiShoes(new FischerShoesModelS(i));
                 AddSkiShoes(new NordicaShoesModelE(i));
@@ -64,7 +64,7 @@ namespace SkiResort
             SkiShoes[inputSkiShoes.Brand].Add(inputSkiShoes);
         }
 
-        public void RentSki(SkiBrands Brand, SkiSizes Size)
+        public SkiBase RentSki(visitorBase visitor,SkiBrands Brand, SkiSizes Size)
         {
 
 
@@ -73,33 +73,40 @@ namespace SkiResort
                 if (ski.Brand == Brand & ski.SkiSize == Size)
                 {
                     ski.isAvailable = false;
+                    visitor.AddToRentedSKiList(ski);
+                    
                     Console.WriteLine("You've rented Ski " + Brand + " Size: " + Size);
-                    return;
+                    return ski;
                 }
 
 
             }
             Console.WriteLine("There is no item with Brand: " + Brand + " and Size: " + Size);
+            return null;
         }
 
 
-        public void ReturnSki(SkiBrands Brand, SkiSizes Size)
+        public SkiBase ReturnSki(visitorBase visitor, SkiBrands Brand, SkiSizes Size)
         {
             foreach (SkiBase ski in Ski[Brand])
             {
                 if (ski.Brand == Brand & ski.SkiSize == Size)
                 {
                     ski.isAvailable = true;
+                    visitor.RemoveFromRentedSKiList(ski);
+
                     Console.WriteLine("You've return Ski " + Brand + " Size: " + Size);
-                    return;
+                    return ski;
                 }
 
 
             }
             Console.WriteLine("There is no item with Brand: " + Brand + " and Size: " + Size);
+            return null;
+
         }
 
-        public void RentSkiShoes(SkiShoesBrands Brand, int Size)
+        public SkiShoesBase RentSkiShoes(visitorBase visitor, SkiShoesBrands Brand, int Size)
         {
 
 
@@ -107,31 +114,33 @@ namespace SkiResort
             {
                 if (shoe.Brand == Brand && shoe.ShoeSize == Size)
                 {
-                Console.WriteLine("--------");
+                    Console.WriteLine("--------");
 
                     shoe.SizeAvailable = false;
-                Console.WriteLine("Succesfully rented SkiShoes " + Brand + " Size: " + Size);
-                return;
-                }               
+                    visitor.AddToRentedSKiShoesList(shoe);
+
+                    Console.WriteLine("Succesfully rented SkiShoes " + Brand + " Size: " + Size);
+                    return shoe;
+                }
             }
             Console.WriteLine("There is no item with Brand: " + Brand + " and Size: " + Size);
+            return null;
+
         }
 
-        public void ReturnSkiShoes(SkiShoesBrands Brand, int Size)
+
+        public void ReturnSkiShoes(visitorBase visitor, SkiShoesBrands Brand, int Size)
         {
             foreach (SkiShoesBase shoe in SkiShoes[Brand])
             {
-                if (shoe.Brand == Brand & !shoe.SizeAvailable)
+
+                if (shoe.Brand == Brand && shoe.ShoeSize == Size)
                 {
                     shoe.SizeAvailable = true;
+                    visitor.RemoveFromRentedSKiShoesList(shoe);
                     Console.WriteLine("You've returned SkiShoe " + Brand + " Size: " + Size);
-                        return;
-                    }
-
-                Console.WriteLine("Not sure what this item is.");
                     return;
-                
-
+                }
 
             }
             Console.WriteLine("There is no item with Brand: " + Brand + " and Size: " + Size);
@@ -163,7 +172,7 @@ namespace SkiResort
             foreach (SkiBase ski in Ski[Brand])
             {
                 if (ski.isAvailable) ski.Description();
-               
+
             }
 
         }
@@ -191,24 +200,28 @@ namespace SkiResort
 
         }
 
-        public void  listFullSkiShoesList()
+        public void listFullSkiShoesList()
         {
             Console.WriteLine("-----------");
             Console.WriteLine("SkiShoes Brands:");
             foreach (SkiShoesBrands skiShoesBrand in SkiShoes.Keys)
             {
-               foreach (SkiShoesBase ski in SkiShoes[skiShoesBrand])
+                foreach (SkiShoesBase ski in SkiShoes[skiShoesBrand])
                 {
                     ski.Description();
                 }
-              
+
             }
 
         }
 
+       
+
+        
 
     }
 }
+
 
 
 

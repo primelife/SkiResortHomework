@@ -13,5 +13,10 @@
     <Folder Include="SkiResort\Shop\SkiAndSkiShoes\SkiShoes\" />
     <Folder Include="SkiResort\Shop\SkiAndSkiShoes\Ski\Base\" />
     <Folder Include="SkiResort\Shop\SkiAndSkiShoes\SkiShoes\Base\" />
+    <Folder Include="SkiResort\Visitors\" />
+    <Folder Include="SkiResort\slopersCenter\" />
+    <Folder Include="SkiResort\slopersCenter\Slopes\" />
+    <Folder Include="SkiResort\Visitors\Visitors\" />
+    <Folder Include="SkiResort\Visitors\Visitors\baseVisitor\" />
   </ItemGroup>
 </Project>
